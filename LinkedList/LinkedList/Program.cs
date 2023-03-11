@@ -6,7 +6,7 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            //UC2 Ability to create Linked List by adding 30 and 56 to 70
+            //UC4 Ability to create Linked List by adding 30 and 56 to 70
             LinkedList list = new LinkedList();
             list.Add(56);
             //Here list.add (30) but 30 added to 70 position
