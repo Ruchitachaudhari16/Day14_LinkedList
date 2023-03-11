@@ -76,6 +76,14 @@ namespace LinkedList
             }
             return Head;
         }
+        //It will Remove the first node
+        public Node RemoveFirstNode()
+        {
+            if (this.Head == null)
+                return null;
+            this.Head = this.Head.Next;
+            return this.Head;
+        }
 
     }
 }
