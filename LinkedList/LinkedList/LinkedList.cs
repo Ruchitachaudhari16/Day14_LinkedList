@@ -8,41 +8,41 @@ using System.Xml.Linq;
 namespace LinkedList
 {
     internal class LinkedList
-    { 
-            public Node Head;
-            public void Add(int data)
+    {
+        public Node Head;
+        public void Add(int data)
+        {
+            Node node = new Node(data);
+            if (this.Head == null)
             {
-                Node node = new Node(data);
-                if (this.Head == null)
-                {
-                    this.Head = node;
-                }
-                else
-                {
-                    Node temp = Head;
-                    while (temp.Next != null)
-                    {
-                        temp = temp.Next;
-                    }
-                    temp.Next = node;
-                }
-                Console.WriteLine("{0} inserted into the linked list", node.Data);
+                this.Head = node;
             }
-
-            public void Display()
+            else
             {
-                Node temp = this.Head;
-                if (temp == null)
+                Node temp = Head;
+                while (temp.Next != null)
                 {
-                    Console.WriteLine("Linked List is Empty");
-                    return;
-                }
-                while (temp != null)
-                {
-                    Console.WriteLine(temp.Data + " ");
                     temp = temp.Next;
                 }
+                temp.Next = node;
             }
+            Console.WriteLine("{0} inserted into the linked list", node.Data);
+        }
+
+        public void Display()
+        {
+            Node temp = this.Head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked List is Empty");
+                return;
+            }
+            while (temp != null)
+            {
+                Console.WriteLine(temp.Data + " ");
+                temp = temp.Next;
+            }
+        }
         public Node InserAtParticularPosition(int position, int data)
         {
             if (position < 1)
@@ -85,6 +85,24 @@ namespace LinkedList
             return this.Head;
         }
 
+        //It will Remove the last node
+        public Node RemoveLastNode()
+        {
+            if (Head == null)
+            {
+                return null;
+            }
+            if (Head.Next == null)
+                return null;
+            Node newNode = Head;
+            while (newNode.Next.Next != null)
+            {
+                newNode = newNode.Next;
+            }
+            newNode.Next = null;
+            return Head;
+
+        }
     }
 }
                     
